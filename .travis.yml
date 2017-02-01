@@ -1,11 +1,11 @@
 language: c
-
+sudo: required
 env:
     - MPI_IMPL=openmpi
 
 before_install:
     - test -n $CC && unset CC
-    - sh ./conf/travis-install-mpi.sh $MPI_IMPL
+    - sh ./travis-install-mpi.sh $MPI_IMPL
     - export PATH=$HOME/OpenMPI/bin:$PATH
 
 script:
