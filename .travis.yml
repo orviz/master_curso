@@ -6,9 +6,11 @@ env:
 before_install:
     - test -n $CC && unset CC
       #- sh ./travis-install-mpi.sh $MPI_IMPL
+      #- export PATH=$HOME/OpenMPI/bin:$PATH
     - sudo apt-get -y install gcc libcr-dev mpich2 mpich2-doc
-    - export PATH=$HOME/OpenMPI/bin:$PATH
 
 script:
-    - mpicc mpi_pi_reduce.c -o mpi_pi_reduce
+    #- mpicc mpi_pi_reduce.c -o mpi_pi_reduce
+    - mpicc cpi.c -o /tmp/cpi
+    - /tmp/cpi
 
